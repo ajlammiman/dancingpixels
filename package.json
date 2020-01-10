@@ -26,10 +26,10 @@
     "prestart": "yarn",
     "start": "run-p watch:*",
     "watch:test": "jest --watchAll",
-    "watch:build": "parcel watch index.js -d ../public --out-file bundle.js --no-hmr --public-url \"/public\"",
+    "watch:build": "parcel watch index.js -d ./public --out-file bundle.js --no-hmr --public-url \"/public\"",
     "preci": "yarn",
     "ci": "run-s static:*",
-    "static:build": "parcel build index.js -d ../public --out-file bundle.js --public-url \"/public\"",
+    "static:build": "parcel build index.js -d ./public --out-file bundle.js --public-url \"/public\"",
     "static:test": "jest"
   },
   "jest": {
