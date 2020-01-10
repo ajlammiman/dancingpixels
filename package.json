@@ -1,0 +1,57 @@
+{
+  "name": "dancing-pixels",
+  "version": "1.0.0",
+  "main": "index.js",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/polyfill": "^7.4.4",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "@testing-library/jest-dom": "^4.1.0",
+    "@testing-library/react": "^9.1.3",
+    "jest": "^24.8.0",
+    "jest-extended": "^0.11.2",
+    "jest-fetch-mock": "^2.1.2",
+    "jest-teamcity-reporter": "^0.9.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.3",
+    "polished": "^3.3.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "styled-components": "^4.2.0"
+  },
+  "scripts": {
+    "prestart": "yarn",
+    "start": "run-p watch:*",
+    "watch:test": "jest --watchAll",
+    "watch:build": "parcel watch index.js -d ../public --out-file bundle.js --no-hmr --public-url \"/public\"",
+    "preci": "yarn",
+    "ci": "run-s static:*",
+    "static:build": "parcel build index.js -d ../public --out-file bundle.js --public-url \"/public\"",
+    "static:test": "jest"
+  },
+  "jest": {
+    "testResultsProcessor": "jest-teamcity-reporter",
+    "automock": false,
+    "setupFiles": [
+      "./setupJest.js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleNameMapper": {
+      "\\.(gif|ttf|eot|svg)$": "<rootDir>/imgMock.js"
+    },
+    "setupFilesAfterEnv": [
+      "jest-extended"
+    ]
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.10.0",
+    "react-modal": "^3.10.1",
+    "sumo-logger": "^2.5.5"
+  }
+}
